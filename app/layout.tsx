@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from 'next'
 import type { PropsWithChildren } from 'react'
-import { Inter } from 'next/font/google'
-import classNames from 'classnames'
+import Navbar from '@/components/layout/navbar'
+import Footer from '@/components/layout/footer'
 import '@/app/globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
@@ -19,7 +17,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: 'Stefano Monolo <stefano@smnl.dev>',
-      url: 'https://carusoprojects.com'
+      url: 'https://smnl.dev'
     }
   ],
   creator: 'Stefano Monolo <stefano@smnl.dev>',
@@ -27,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Simone Caruso Design',
     description: 'Simone Caruso Design',
-    url: 'https://smnl.dev',
+    url: 'https://carusoprojects.com',
     siteName: 'Simone Caruso',
     type: 'website'
   },
@@ -53,13 +51,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en">
-      <body
-        className={classNames(
-          inter.className,
-          'bg-cp-light-brand text-cp-light-white relative m-0 flex min-h-screen w-full flex-col justify-between p-0'
-        )}
-      >
+      <body className="relative m-0 flex min-h-screen w-full flex-col justify-between bg-cp-light-brand p-0 text-cp-light-white">
+        <Navbar />
         <main className="mx-auto w-full max-w-[1200px]">{children}</main>
+        <Footer />
       </body>
     </html>
   )
