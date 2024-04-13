@@ -4,7 +4,7 @@ import { getAllProjects } from '@/lib/api'
 import Link from 'next/link'
 
 export default async function Home() {
-  const projects = await getAllProjects()
+  const projects = await getAllProjects(4)
 
   return (
     <Page>
@@ -19,7 +19,7 @@ export default async function Home() {
           Let&apos;s work together
         </button>
       </Link>
-      <section id="projects" className="mt-40 grid grid-cols-2 gap-10">
+      <section className="mt-40 grid grid-cols-2 gap-10">
         {projects.map((project) => (
           <Project key={project.sys.id} project={project} />
         ))}

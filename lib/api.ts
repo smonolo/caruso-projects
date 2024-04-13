@@ -26,10 +26,10 @@ async function fetchGraphQL(query: string) {
   ).then((response) => response.json())
 }
 
-export async function getAllProjects(): Promise<Project[]> {
+export async function getAllProjects(limit: number): Promise<Project[]> {
   const response = await fetchGraphQL(`
     {
-      projectCollection(limit: 100) {
+      projectCollection(limit: ${limit}) {
         items {
           sys {
             id
