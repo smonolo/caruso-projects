@@ -1,4 +1,4 @@
-type Project = {
+export type Project = {
   sys: {
     id: string
   }
@@ -29,7 +29,7 @@ async function fetchGraphQL(query: string) {
 export async function getAllProjects(): Promise<Project[]> {
   const response = await fetchGraphQL(`
     {
-      projectCollection {
+      projectCollection(limit: 100) {
         items {
           sys {
             id

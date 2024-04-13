@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-x-4 py-10">
+    <footer className="flex w-full items-center justify-between gap-x-4">
       <span className="font-medium">
         © {new Date().getFullYear()} Simone Caruso. All rights reserved.
       </span>

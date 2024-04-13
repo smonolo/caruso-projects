@@ -1,29 +1,27 @@
+import Project from '@/components/common/project'
 import Page from '@/components/layout/page'
 import { getAllProjects } from '@/lib/api'
-import Image from 'next/image'
+import Link from 'next/link'
 
 export default async function Home() {
   const projects = await getAllProjects()
 
   return (
     <Page>
-      <h1 className="text-4xl font-bold">Simone Caruso Design</h1>
-      <p className="mt-2 text-cp-dark-white">
-        Site under construction, check back later.
+      <h1 className="text-6xl font-bold">Simone Caruso</h1>
+      <p className="mt-6 max-w-[700px] text-cp-dark-white">
+        As a Graphic and UI/UX Designer, I&apos;m like a mad scientist of
+        design, crafting delightful and ingenious solutions that make jaws drop
+        and minds whirl!
       </p>
-      <section id="projects" className="mt-20 grid grid-cols-2 gap-10">
+      <Link href="#contact" className="mt-14 block w-fit">
+        <button className="w-fit rounded-lg border-none bg-cp-light-white px-5 py-3 text-sm font-semibold text-cp-light-brand transition-colors hover:bg-cp-dark-white">
+          Let&apos;s work together
+        </button>
+      </Link>
+      <section id="projects" className="mt-40 grid grid-cols-2 gap-10">
         {projects.map((project) => (
-          <div key={project.sys.id}>
-            <Image
-              src={project.image.url}
-              alt={project.name}
-              width={2000}
-              height={2000}
-              className="h-[500px] w-full rounded-lg object-cover"
-            />
-            <h5 className="mt-5 font-medium">{project.name}</h5>
-            <p className="mt-3 text-cp-dark-white">{project.summary}</p>
-          </div>
+          <Project key={project.sys.id} project={project} />
         ))}
       </section>
     </Page>

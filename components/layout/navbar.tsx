@@ -11,7 +11,7 @@ export default function Navbar() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed left-0 top-0 w-full py-5 backdrop-blur-xl">
+    <nav className="fixed left-0 top-0 z-10 w-full py-5 backdrop-blur-xl">
       <div className="mx-auto flex w-full max-w-[1200px] items-center justify-between gap-x-5">
         <Link href="/">
           <Image
@@ -20,7 +20,7 @@ export default function Navbar() {
             className="w-[25px]"
           />
         </Link>
-        <div className="flex w-fit items-center gap-x-5">
+        <div className="flex w-fit items-center gap-x-6">
           {data.items.map((item, index) => (
             <Link key={index} href={item.url}>
               <span

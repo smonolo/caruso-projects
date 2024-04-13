@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import type { PropsWithChildren } from 'react'
 import Navbar from '@/components/layout/navbar'
 import Footer from '@/components/layout/footer'
+import Creator from '@/components/layout/creator'
 import '@/app/globals.css'
 
 export const metadata: Metadata = {
@@ -50,11 +51,14 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className="relative m-0 flex min-h-screen w-full flex-col justify-between bg-cp-light-brand p-0 text-cp-light-white">
         <Navbar />
         <main className="mx-auto w-full max-w-[1200px]">{children}</main>
-        <Footer />
+        <div className="mx-auto mt-28 flex w-full max-w-[1200px] flex-col gap-y-4 py-10">
+          <Footer />
+          <Creator />
+        </div>
       </body>
     </html>
   )
